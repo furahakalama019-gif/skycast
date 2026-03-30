@@ -1,0 +1,589 @@
+/* style.css */
+#weather-display {
+    display: grid;
+    place-items: center;
+    padding: 40px;
+}
+
+.weather-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+}
+
+/* The "Active" feel */
+.animate-fade {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Spinner */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #1a237e;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+h1 {
+  font-family: 'Inter', sans-serif; /* A very popular modern dev font */
+  font-weight: 700;
+  color: #333;
+}
+
+h1 span {
+  color: #007cf0; /* Use a nice sky blue for the 'Cast' */
+}
+
+.header-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  color: #1a1a1a;
+  letter-spacing: -0.02em; /* Makes it look more like a logo */
+}
+
+#weather-icon {
+    width: 120px; /* Makes the icon nice and large */
+    height: 120px;
+    display: block;
+    margin: 20px 0; /* Adds some breathing room */
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 15px var(--glow-color);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 30px var(--glow-color);
+        transform: scale(1.05); /* Makes the icon grow slightly */
+    }
+    100% {
+        box-shadow: 0 0 15px var(--glow-color);
+        transform: scale(1);
+    }
+}
+
+.weather-glow {
+    /* ... keep your existing glow styles here ... */
+    animation: pulse-glow 3s infinite ease-in-out; /* This starts the pulse! */
+}
+
+#weather-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the icon horizontally */
+    justify-content: center;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    /* This makes the background change smooth */
+    transition: background 0.8s ease-in-out; 
+    background: #f0f2f5; /* Default light grey */
+}
+
+/* Optional: Ensure your text stays readable against darker backgrounds */
+.weather-text {
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.glass-card {
+    /* The semi-transparent white background */
+    background: rgba(255, 255, 255, 0.2); 
+    
+    /* The blur effect (the most important part!) */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Support for Safari */
+    
+    /* Aesthetics */
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+    
+    /* Subtle shadow to give it depth */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    
+    /* Centering the card on the screen */
+    margin: 50px auto;
+}
+
+/* Make sure your text is bright enough to see over the glass */
+#display-city, #display-desc {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#city-input {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: white;
+    outline: none;
+}
+
+#city-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.forecast-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.forecast-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    width: 80px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.forecast-date {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.forecast-temp {
+    font-size: 0.9rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;    /* Center them horizontally */
+    min-height: 100vh;
+    margin: 0;
+}
+
+#forecast-container {
+    margin-top: 40px; /* Pushes the 5-day forecast down slightly from Nairobi */
+}
+
+.glass-card {
+    /* Make it wider and taller */
+    width: 400px; 
+    padding: 50px;
+    
+    /* Increase the font sizes inside */
+    font-size: 1.2rem;
+    
+    /* Stronger depth effect */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    
+    /* Ensure it's centered above the forecast */
+    margin-bottom: 40px; 
+}
+
+/* Specifically target the city name and temp in the hero card */
+#display-city {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+#display-temp {
+    font-size: 4rem;
+    font-weight: 300; /* Light weight looks very modern for temps */
+    margin: 10px 0;
+}
+
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.glass-card {
+    animation: cardEntrance 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.forecast-item {
+    width: 100px;
+    padding: 15px;
+    font-size: 0.85rem;
+    opacity: 0.9; /* Slightly dimmer so it doesn't compete with the hero card */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Add a hover effect for the forecast cards */
+.forecast-item:hover {
+    transform: translateY(-5px);
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.temp-range {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.max {
+    font-weight: bold;
+    color: #fff;
+}
+
+.min {
+    color: rgba(255, 255, 255, 0.6); /* Faded look for the low temp */
+}
+
+.forecast-item {
+    min-width: 90px; /* Give it a bit more width for the range */
+}
+
+.temp-range {
+    display: flex;
+    align-items: center; /* Aligns the numbers and bar in a straight line */
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* The grey track background */
+.range-bar-container {
+    flex-grow: 1; /* Makes the bar fill the space between the numbers */
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    position: relative;
+    min-width: 40px;
+}
+
+/* The colorful "spread" bar */
+.range-bar-fill {
+    position: absolute;
+    height: 100%;
+    width: 100%; /* In a more advanced version, we'd calculate this based on the temp */
+    background: linear-gradient(to right, #3498db, #e74c3c); /* Blue to Red */
+    border-radius: 10px;
+}
+
+.min, .max {
+    font-size: 0.85rem;
+    width: 25px; /* Keeps the numbers aligned */
+}
+
+.forecast-item {
+    min-width: 120px; /* Increased from 90px to fit the bar */
+    padding: 15px 10px;
+}
+
+.forecast-grid {
+    gap: 12px;
+}
+
+/* Container for all 5 cards */
+.forecast-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Subtle glassmorphism background */
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+/* Individual Card Styling */
+.forecast-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2); /* Slightly brighter for the card */
+    padding: 15px;
+    border-radius: 12px;
+    min-width: 80px;
+    transition: transform 0.3s ease;
+}
+
+.forecast-card:hover {
+    transform: translateY(-5px); /* Adds a nice interactive feel */
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Spacing between cards */
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.forecast-card {
+    background: rgba(0, 0, 0, 0.7); /* Deep dark background */
+    backdrop-filter: blur(8px);    /* Blurs the background behind the card */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle "edge" highlight */
+    border-radius: 12px;
+    padding: 15px;
+    min-width: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+}
+
+/* Day labels (MON, TUE, etc.) */
+.forecast-day {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+/* Temperature text */
+.forecast-temp {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+/* Weather Icons */
+.forecast-icon {
+    width: 45px;
+    height: 45px;
+    filter: drop-shadow(0px 0px 5px rgba(255,255,255,0.2));
+}
+
+/* Apply this to your City Name (e.g., Nairobi) */
+.city-name {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    /* A layered shadow: one for sharpness, one for depth */
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3), 
+                 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Apply this to your Main Temperature (e.g., 17°C) */
+.main-temp {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 10px 0;
+    /* This makes the numbers look "engraved" or popping out */
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Apply this to the weather description (e.g., broken clouds) */
+.weather-description {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.main-weather-icon {
+    width: 120px;
+    height: 120px;
+    /* This creates a soft white glow behind the cloud/sun */
+    filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.4));
+}
+
+.about-section {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    margin-top: 40px;
+}
+
+.about-card {
+    background: rgba(0, 0, 0, 0.7); /* Matching your dark cards */
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    max-width: 600px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.about-card h2 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.about-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.about-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.github-link {
+    color: #00d2ff; /* A nice tech-blue accent */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.github-link:hover {
+    color: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Button in the About Section */
+.contact-trigger {
+    background: #00d2ff;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-trigger:hover {
+    background: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Box */
+.modal-content {
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Form Styling */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#contactForm input, #contactForm textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+}
+
+.submit-btn {
+    background: #00d2ff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:active {
+    transform: scale(0.95);
+    background: #0088cc; /* Slightly darker blue when clicked */
+}
+
+body {
+    background-color: #0b131e; /* Deep midnight blue */
+    /* OR for a true dark gray: background-color: #121212; */
+    color: #ffffff; /* This ensures all text defaults to white */
+    transition: background-color 0.5s ease; /* Smooth transition */
+}
